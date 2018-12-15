@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {TodoService} from '../providers/todo.service';
 import {Subscription} from 'rxjs';
+import {Todo} from '../definitions/todo';
 
 @Component({
   selector: 'app-todo-list-component',
@@ -9,6 +10,7 @@ import {Subscription} from 'rxjs';
 })
 export class TodoListComponentComponent implements OnInit, OnDestroy   {
 
+  public todoList: Todo[];
   private todoSub: Subscription;
 
   constructor(private todoService: TodoService) { }
