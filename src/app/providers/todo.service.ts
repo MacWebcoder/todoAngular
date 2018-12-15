@@ -7,10 +7,16 @@ import {Todo} from '../definitions/todo';
   providedIn: 'root'
 })
 export class TodoService {
-  private baseUrl = 'http://jsonplaceholder.typicode.com/todos';
+  private baseUrl = 'http://cors-anywhere.herokuapp.com/http://jsonplaceholder.typicode.com/todos';
 
   constructor(private http: HttpClient) { }
+
   public getAll(): Observable<Todo[]> {
     return this.http.get<Todo[]>(this.baseUrl);
   }
+
+  public update(id: number, todo: Todo): Observable<any> {
+    return this.http.put(this.baseUrl + '/' + id, todo);
+  }
+
 }
